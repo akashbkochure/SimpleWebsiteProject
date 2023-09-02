@@ -9,7 +9,7 @@ pipeline {
                     def sshKeyPath = '/home/ubuntu/akash.pem'
                     
                     sh """
-                    ssh -i ${sshKeyPath} -o StrictHostKeyChecking=no ${remoteHost} << 'EOF'
+                    sudo ssh -i ${sshKeyPath} -o StrictHostKeyChecking=no ${remoteHost} << 'EOF'
                     sudo docker stop my-html-app || true
                     sudo docker rm my-html-app || true
                     sudo docker rmi my-html-app || true
@@ -27,7 +27,7 @@ pipeline {
                     def sshKeyPath = '/home/ubuntu/akash.pem'
                     
                     sh """
-                    ssh -i ${sshKeyPath} -o StrictHostKeyChecking=no ${remoteHost} << 'EOF'
+                    sudo ssh -i ${sshKeyPath} -o StrictHostKeyChecking=no ${remoteHost} << 'EOF'
                     sudo git clone https://github.com/akashbkochure/SimpleWebsiteProject.git
                     cd SimpleWebsiteProject
                     sudo docker build -t my-html-app .

@@ -13,7 +13,7 @@ pipeline {
                     sudo docker stop my-html-app || true
                     sudo docker rm my-html-app || true
                     sudo docker rmi my-html-app || true
-                    sudo rm -rf SimpleWebsiteProject
+                    sudo rm -rf SimpleWebsiteProject || true
                     EOF
                     """
                 }

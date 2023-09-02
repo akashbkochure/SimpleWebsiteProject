@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Update package lists
+sudo apt update -y
+
+# Install Apache web server
+sudo apt install apache2 -y
+
+# Start Apache service
+sudo systemctl start apache2
+
+# Clone the GitHub repository to /var/www/html
+sudo git clone https://github.com/akashbkochure/SimpleWebsiteProject.git /var/www/html/

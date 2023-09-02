@@ -5,12 +5,8 @@ pipeline {
         stage('Cleanup') {
             steps {
                 script {
-                    
-                    
-                    
-
                     def remoteHost = 'ubuntu@54.221.175.144'
-                    def sshKeyPath = '/var/lib/jenkins/.ssh/akash.pem'
+                    def sshKeyPath = '/home/ubuntu/akash.pem'
                     
                     sh """
                     sudo ssh -i ${sshKeyPath} -o StrictHostKeyChecking=no ${remoteHost} << 'EOF'
@@ -28,7 +24,7 @@ pipeline {
             steps {
                 script {
                     def remoteHost = 'ubuntu@54.221.175.144'
-                    def sshKeyPath = '/var/lib/jenkins/.ssh/akash.pem'
+                    def sshKeyPath = '/home/ubuntu/akash.pem'
                     
                     sh """
                     sudo ssh -i ${sshKeyPath} -o StrictHostKeyChecking=no ${remoteHost} << 'EOF'

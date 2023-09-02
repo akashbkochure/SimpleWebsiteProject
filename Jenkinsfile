@@ -5,7 +5,7 @@ pipeline {
         stage('Cleanup') {
             steps {
                 script {
-                    def remoteHost = 'ubuntu@54.211.233.129'
+                    def remoteHost = 'ubuntu@54.221.175.144'
                     def sshKeyPath = '/home/ubuntu/akash.pem'
                     
                     sh """
@@ -23,7 +23,7 @@ pipeline {
         stage('Clone, Build and Deploy') {
             steps {
                 script {
-                    def remoteHost = 'ubuntu@54.211.233.129'
+                    def remoteHost = 'ubuntu@54.221.175.144'
                     def sshKeyPath = '/home/ubuntu/akash.pem'
                     
                     sh """

@@ -5,8 +5,12 @@ pipeline {
         stage('Cleanup') {
             steps {
                 script {
+                    sudo cp /home/ubuntu/akash.pem /var/lib/jenkins/.ssh/akash.pem
+                    sudo chown jenkins:jenkins /var/lib/jenkins/.ssh/akash.pem
+                    sudo chmod 600 /var/lib/jenkins/.ssh/akash.pem
+
                     def remoteHost = 'ubuntu@54.221.175.144'
-                    def sshKeyPath = '/home/ubuntu/akash.pem'
+                    def sshKeyPath = '/var/lib/jenkins/.ssh/akash.pem'
                     
                     sh """
                     sudo ssh -i ${sshKeyPath} -o StrictHostKeyChecking=no ${remoteHost} << 'EOF'
@@ -24,7 +28,7 @@ pipeline {
             steps {
                 script {
                     def remoteHost = 'ubuntu@54.221.175.144'
-                    def sshKeyPath = '/home/ubuntu/akash.pem'
+                    def sshKeyPath = '/var/lib/jenkins/.ssh/akash.pem'
                     
                     sh """
                     sudo ssh -i ${sshKeyPath} -o StrictHostKeyChecking=no ${remoteHost} << 'EOF'

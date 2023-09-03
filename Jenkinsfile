@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     stages {
-/*        stage('Cleanup') {
+        stage('Cleanup') {
             steps {
                 script {
                     def remoteHost = 'ubuntu@172.31.36.172'
                     def sshKeyPath = '/var/lib/jenkins/akash.pem'
                     
                     sh """
-                    sudo ssh -i ${sshKeyPath} -o StrictHostKeyChecking=no ${remoteHost} << 'EOF'
+                    sudo ssh -i ${sshKeyPath} -o StrictHostKeyChecking=no ${remoteHost} << ''EOF''
                     sudo docker stop my-html-app 
                     sudo docker rm my-html-app 
                     sudo docker rmi my-html-app 
@@ -18,7 +18,7 @@ pipeline {
                     """
                 }
             }
-        }*/
+        }
 
         stage('Clone, Build and Deploy') {
             steps {
@@ -27,7 +27,7 @@ pipeline {
                     def sshKeyPath = '/var/lib/jenkins/akash.pem'
                     
                     sh """
-                    sudo ssh -i ${sshKeyPath} -o StrictHostKeyChecking=no ${remoteHost} << 'EOF'
+                    sudo ssh -i ${sshKeyPath} -o StrictHostKeyChecking=no ${remoteHost} << ''EOF''
                     sudo git clone https://github.com/akashbkochure/SimpleWebsiteProject.git
                     cd SimpleWebsiteProject
                     sudo docker build -t my-html-app .

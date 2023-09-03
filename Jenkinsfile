@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Cleanup') {
+/*        stage('Cleanup') {
             steps {
                 script {
                     def remoteHost = 'ubuntu@172.31.36.172'
@@ -18,7 +18,7 @@ pipeline {
                     """
                 }
             }
-        }
+        }*/
 
         stage('Clone, Build and Deploy') {
             steps {

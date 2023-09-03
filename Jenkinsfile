@@ -5,8 +5,8 @@ pipeline {
         stage('Cleanup') {
             steps {
                 script {
-                    def remoteHost = 'ubuntu@54.221.175.144'
-                    def sshKeyPath = '/home/ubuntu/akash.pem'
+                    def remoteHost = 'ubuntu@172.31.36.172'
+                    def sshKeyPath = '/var/lib/jenkins/akash.pem'
                     
                     sh """
                     sudo ssh -i ${sshKeyPath} -o StrictHostKeyChecking=no ${remoteHost} << 'EOF'
@@ -23,8 +23,8 @@ pipeline {
         stage('Clone, Build and Deploy') {
             steps {
                 script {
-                    def remoteHost = 'ubuntu@54.221.175.144'
-                    def sshKeyPath = '/home/ubuntu/akash.pem'
+                    def remoteHost = 'ubuntu@172.31.36.172'
+                    def sshKeyPath = '/var/lib/jenkins/akash.pem'
                     
                     sh """
                     sudo ssh -i ${sshKeyPath} -o StrictHostKeyChecking=no ${remoteHost} << 'EOF'

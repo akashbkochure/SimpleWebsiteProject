@@ -10,10 +10,10 @@ pipeline {
                     
                     sh """
                     sudo ssh -i ${sshKeyPath} -o StrictHostKeyChecking=no ${remoteHost} << 'EOF'
-                    sudo docker stop my-html-app || true
-                    sudo docker rm my-html-app || true
-                    sudo docker rmi my-html-app || true
-                    sudo rm -rf SimpleWebsiteProject || true
+                    sudo docker stop my-html-app 
+                    sudo docker rm my-html-app 
+                    sudo docker rmi my-html-app 
+                    sudo rm -rf SimpleWebsiteProject
                     EOF
                     """
                 }
